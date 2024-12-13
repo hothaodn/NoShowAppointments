@@ -7519,7 +7519,7 @@ a.anchor-link {
 <blockquote>
 <p><strong>Tip</strong>: Welcome to the Investigate a Dataset project! You will find tips in quoted sections like this to help organize your approach to your investigation. Once you complete this project, remove these <strong>Tip</strong> sections from your report before submission. First things first, you might want to double-click this Markdown cell and change the title so that it reflects your dataset and investigation.</p>
 </blockquote>
-<h1 id="Project:-Investigate-a-Dataset---%5BDataset-name%5D">Project: Investigate a Dataset - [Dataset-name]<a class="anchor-link" href="#Project:-Investigate-a-Dataset---%5BDataset-name%5D">¶</a></h1><h2 id="Table-of-Contents">Table of Contents<a class="anchor-link" href="#Table-of-Contents">¶</a></h2><ul>
+<h1 id="Project:-Investigate-a-Dataset---No-show-Appointments">Project: Investigate a Dataset - No-show Appointments<a class="anchor-link" href="#Project:-Investigate-a-Dataset---No-show-Appointments">¶</a></h1><h2 id="Table-of-Contents">Table of Contents<a class="anchor-link" href="#Table-of-Contents">¶</a></h2><ul>
 <li><a href="#intro">Introduction</a></li>
 <li><a href="#wrangling">Data Wrangling</a></li>
 <li><a href="#eda">Exploratory Data Analysis</a></li>
@@ -7536,17 +7536,39 @@ a.anchor-link {
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
 <p><a id="intro"></a></p>
-<h2 id="Introduction">Introduction<a class="anchor-link" href="#Introduction">¶</a></h2><h3 id="Dataset-Description">Dataset Description<a class="anchor-link" href="#Dataset-Description">¶</a></h3><blockquote>
-<p><strong>Tip</strong>: In this section of the report, provide a brief introduction to the dataset you've selected/downloaded for analysis. Read through the description available on the <code>Project Details</code> page of <code>Investigate a Dataset</code> lesson for this course. List all column names in each table, and their significance. In case of multiple tables, describe the relationship between tables.</p>
-</blockquote>
-<h3 id="Question(s)-for-Analysis">Question(s) for Analysis<a class="anchor-link" href="#Question(s)-for-Analysis">¶</a></h3><p>Question 1: What factors influence the likelihood of attending an appointment (No-show = 0), including Gender, Scholarship, Hypertension, Diabetes, Alcoholism, Handicap, SMS_received, Age, and DaysDifference (the gap between ScheduledDay and AppointmentDay)?</p>
-<p>Question 2: What are the top 3 features that have the greatest impact on the likelihood of missing an appointment (No-show = 1)?</p>
-<blockquote>
-<p><strong>Tip</strong>: Clearly state one or more questions that you plan on exploring over the course of the report. You will address these questions in the <strong>data analysis</strong> and <strong>conclusion</strong> sections. Try to build your report around the analysis of at least one dependent variable and three independent variables. If you're not sure what questions to ask, then make sure you familiarize yourself with the dataset, its variables and the dataset context for ideas of what to explore.</p>
-</blockquote>
-<blockquote>
-<p><strong>Tip</strong>: Once you start coding, use NumPy arrays, Pandas Series, and DataFrames where appropriate rather than Python lists and dictionaries. Also, <strong>use good coding practices</strong>, such as, define and use functions to avoid repetitive code. Use appropriate comments within the code cells, explanation in the mark-down cells, and meaningful variable names.</p>
-</blockquote>
+<h2 id="Introduction">Introduction<a class="anchor-link" href="#Introduction">¶</a></h2><p>The goal of this project is to analyze appointment data to understand the patterns and factors influencing no-shows in appointments. By identifying these patterns, we can provide actionable insights to improve scheduling efficiency and reduce no-show rates, which can help organizations save time and resources.</p>
+<p>This analysis will involve cleaning the dataset, conducting exploratory data analysis (EDA), and drawing conclusions based on the results. Key visualizations and statistical summaries will be used to support the findings and answer the research questions.</p>
+<h3 id="Dataset-Description">Dataset Description<a class="anchor-link" href="#Dataset-Description">¶</a></h3><p>The dataset contains information about patient appointments, with a focus on whether or not the patient showed up for their scheduled appointment (No-show).</p>
+<ol>
+<li>Key columns include 'ScheduledDay' (date the appointment was booked), 'AppointmentDay' (date of the appointment), 'No-show' (indicating if the patient attended), and 'Age' (patient's age).</li>
+<li>Other columns like 'Gender', 'Scholarship', 'Hipertension', 'Diabetes', 'Alcoholism', and 'SMS_received' provide demographic and health-related details that may influence appointment attendance.</li>
+<li>'Handcap' and 'DaysDifference' columns help track patient conditions and the time gap between scheduling and the appointment.</li>
+<li>The dataset consists of a single table with no direct relationships to other tables, but each column represents a feature that could affect the likelihood of a patient showing up for an appointment.</li>
+</ol>
+<h3 id="Question(s)-for-Analysis">Question(s) for Analysis<a class="anchor-link" href="#Question(s)-for-Analysis">¶</a></h3><ul>
+<li><p>Question 1: What factors influence the likelihood of attending an appointment (No-show = 0), including Gender, Scholarship, Hypertension, Diabetes, Alcoholism, Handicap, SMS_received, Age, and DaysDifference (the gap between ScheduledDay and AppointmentDay)?</p>
+</li>
+<li><p>Question 2: What are the top 3 features that have the greatest impact on the likelihood of missing an appointment (No-show = 1)?</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<p>The goal of this step is to set up the environment and import necessary libraries for data manipulation and visualization.</p>
+<p>Expected outcomes:</p>
+<ul>
+<li>Pandas for handling data</li>
+<li>Matplotlib for plotting graphs</li>
+<li>Matplotlib inline for displaying plots within the notebook</li>
+<li>GGplot style applied for better visualization aesthetics</li>
+</ul>
 </div>
 </div>
 </div>
@@ -7586,12 +7608,7 @@ a.anchor-link {
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
 <p><a id="wrangling"></a></p>
-<h2 id="Data-Wrangling">Data Wrangling<a class="anchor-link" href="#Data-Wrangling">¶</a></h2><blockquote>
-<p><strong>Tip</strong>: In this section of the report, you will load in the data, check for cleanliness, and then trim and clean your dataset for analysis. Make sure that you <strong>document your data cleaning steps in mark-down cells precisely and justify your cleaning decisions.</strong></p>
-</blockquote>
-<h3 id="General-Properties">General Properties<a class="anchor-link" href="#General-Properties">¶</a></h3><blockquote>
-<p><strong>Tip</strong>: You should <em>not</em> perform too many operations in each cell. Create cells freely to explore your data. One option that you can take with this project is to do a lot of explorations initially. This does not have to be organized, but make sure you use enough comments to understand the purpose of each code cell. Then, after you're done with your analysis, trim the excess and organize your steps so that you have a flowing, cohesive report.</p>
-</blockquote>
+<h2 id="Data-Wrangling">Data Wrangling<a class="anchor-link" href="#Data-Wrangling">¶</a></h2><p>The goal of this step is to load the dataset and perform initial data inspection, including checking for missing values, duplicates, and invalid entries. The expected outcomes are an overview of the dataset's shape, data types, missing values, basic statistics, and any issues with the data such as duplicates or incorrect values in specific columns.</p>
 </div>
 </div>
 </div>
@@ -7600,7 +7617,7 @@ a.anchor-link {
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [58]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="c1"># Load your data and print out a few lines. What is the size of your dataframe? </span>
@@ -7713,9 +7730,7 @@ Invalid age:
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h3 id="Data-Cleaning">Data Cleaning<a class="anchor-link" href="#Data-Cleaning">¶</a></h3><blockquote>
-<p><strong>Tip</strong>: Make sure that you keep your reader informed on the steps that you are taking in your investigation. Follow every code cell, or every set of related code cells, with a markdown cell to describe to the reader what was found in the preceding cell(s). Try to make it so that the reader can then understand what they will be seeing in the following cell(s).</p>
-</blockquote>
+<h3 id="Data-Cleaning">Data Cleaning<a class="anchor-link" href="#Data-Cleaning">¶</a></h3><p>The goal of this step is to clean the dataset by removing duplicates, handling missing values, and converting date columns to datetime format. The expected outcome is a cleaned dataset with no duplicates, proper datetime columns, and no missing values in critical columns, ready for further analysis.</p>
 </div>
 </div>
 </div>
@@ -7724,7 +7739,7 @@ Invalid age:
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [9]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [59]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="c1"># After discussing the structure of the data and any problems that need to be</span>
@@ -7751,19 +7766,17 @@ Invalid age:
 <span class="c1"># Reset index</span>
 <span class="n">df</span><span class="o">.</span><span class="n">reset_index</span><span class="p">(</span><span class="n">drop</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 
-
-
 <span class="k">def</span> <span class="nf">calculate_days_difference</span><span class="p">():</span>
-    <span class="k">global</span> <span class="n">DaysDifference</span>  <span class="c1"># Khai báo biến là toàn cục</span>
+    <span class="k">global</span> <span class="n">DaysDifference</span>  <span class="c1"># Declare the variable as global</span>
 
-    <span class="c1"># Chuyển đổi ScheduledDay và AppointmentDay thành kiểu datetime</span>
+    <span class="c1"># Convert ScheduledDay and AppointmentDay to datetime format</span>
     <span class="n">df</span><span class="p">[</span><span class="s1">'ScheduledDay'</span><span class="p">]</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">'ScheduledDay'</span><span class="p">])</span>
     <span class="n">df</span><span class="p">[</span><span class="s1">'AppointmentDay'</span><span class="p">]</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">'AppointmentDay'</span><span class="p">])</span>
 
-    <span class="c1"># Tính khoảng cách ngày giữa ScheduledDay và AppointmentDay và gán vào biến toàn cục</span>
+    <span class="c1"># Calculate the day difference between ScheduledDay and AppointmentDay and assign it to the global variable</span>
     <span class="n">DaysDifference</span> <span class="o">=</span> <span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">'AppointmentDay'</span><span class="p">]</span> <span class="o">-</span> <span class="n">df</span><span class="p">[</span><span class="s1">'ScheduledDay'</span><span class="p">])</span><span class="o">.</span><span class="n">dt</span><span class="o">.</span><span class="n">days</span>
 
-    <span class="c1"># Tính khoảng cách ngày giữa ScheduledDay và AppointmentDay và gán vào DataFrame</span>
+    <span class="c1"># Calculate the day difference between ScheduledDay and AppointmentDay and assign it to the DataFrame</span>
     <span class="n">df</span><span class="p">[</span><span class="s1">'DaysDifference'</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">'AppointmentDay'</span><span class="p">]</span> <span class="o">-</span> <span class="n">df</span><span class="p">[</span><span class="s1">'ScheduledDay'</span><span class="p">])</span><span class="o">.</span><span class="n">dt</span><span class="o">.</span><span class="n">days</span>
 
 <span class="c1"># Display final structure and a few rows to verify the cleaning steps</span>
@@ -7827,7 +7840,7 @@ memory usage: 11.8+ MB
 </div>
 </div>
 <div class="jp-OutputArea-child jp-OutputArea-executeResult">
-<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[9]:</div>
+<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[59]:</div>
 <div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/html" tabindex="0">
 <div>
 <style scoped="">
@@ -7964,13 +7977,22 @@ memory usage: 11.8+ MB
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
 <p><a id="eda"></a></p>
-<h2 id="Exploratory-Data-Analysis">Exploratory Data Analysis<a class="anchor-link" href="#Exploratory-Data-Analysis">¶</a></h2><blockquote>
-<p><strong>Tip</strong>: Now that you've trimmed and cleaned your data, you're ready to move on to exploration. <strong>Compute statistics</strong> and <strong>create visualizations</strong> with the goal of addressing the research questions that you posed in the Introduction section. You should compute the relevant statistics throughout the analysis when an inference is made about the data. Note that at least two or more kinds of plots should be created as part of the exploration, and you must  compare and show trends in the varied visualizations. Remember to utilize the visualizations that the pandas library already has available.</p>
-</blockquote>
-<blockquote>
-<p><strong>Tip</strong>: Investigate the stated question(s) from multiple angles. It is recommended that you be systematic with your approach. Look at one variable at a time, and then follow it up by looking at relationships between variables. You should explore at least three variables in relation to the primary question. This can be an exploratory relationship between three variables of interest, or looking at how two independent variables relate to a single dependent variable of interest. Lastly, you  should perform both single-variable (1d) and multiple-variable (2d) explorations.</p>
-</blockquote>
-<h3 id="Research-Question-1:-What-factors-influence-the-likelihood-of-attending-an-appointment-(No-show-=-0),-including-Gender,-Scholarship,-Hypertension,-Diabetes,-Alcoholism,-Handicap,-SMS_received,-Age,-and-DaysDifference-(the-gap-between-ScheduledDay-and-AppointmentDay)?">Research Question 1: What factors influence the likelihood of attending an appointment (No-show = 0), including Gender, Scholarship, Hypertension, Diabetes, Alcoholism, Handicap, SMS_received, Age, and DaysDifference (the gap between ScheduledDay and AppointmentDay)?<a class="anchor-link" href="#Research-Question-1:-What-factors-influence-the-likelihood-of-attending-an-appointment-(No-show-=-0),-including-Gender,-Scholarship,-Hypertension,-Diabetes,-Alcoholism,-Handicap,-SMS_received,-Age,-and-DaysDifference-(the-gap-between-ScheduledDay-and-AppointmentDay)?">¶</a></h3>
+<h2 id="Exploratory-Data-Analysis">Exploratory Data Analysis<a class="anchor-link" href="#Exploratory-Data-Analysis">¶</a></h2><h3 id="Research-Question-1:-What-factors-influence-the-likelihood-of-attending-an-appointment-(No-show-=-0),-including-Gender,-Scholarship,-Hypertension,-Diabetes,-Alcoholism,-Handicap,-SMS_received,-Age,-and-DaysDifference-(the-gap-between-ScheduledDay-and-AppointmentDay)?">Research Question 1: What factors influence the likelihood of attending an appointment (No-show = 0), including Gender, Scholarship, Hypertension, Diabetes, Alcoholism, Handicap, SMS_received, Age, and DaysDifference (the gap between ScheduledDay and AppointmentDay)?<a class="anchor-link" href="#Research-Question-1:-What-factors-influence-the-likelihood-of-attending-an-appointment-(No-show-=-0),-including-Gender,-Scholarship,-Hypertension,-Diabetes,-Alcoholism,-Handicap,-SMS_received,-Age,-and-DaysDifference-(the-gap-between-ScheduledDay-and-AppointmentDay)?">¶</a></h3>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<p>The goal of this step is to calculate statistical measures (Chi2 Stat, P-value, T-statistic, and T-test P-value) to evaluate the significance of features. The expected result is to obtain these values for each feature, which will help identify the most influential factors for the analysis.</p>
+<ul>
+<li>Chi2 Stat and P-value are used for categorical variables, indicating the association between the feature and the target variable. A lower P-value (usually less than 0.05) suggests a significant relationship.</li>
+<li>T-statistic and T-test P-value are used for continuous variables, indicating the significance of the mean difference between groups. The values show that features like "Age" and "DaysDifference" have a significant T-statistic, while "Gender" and "Alcoholism" show no significant relationship.</li>
+</ul>
 </div>
 </div>
 </div>
@@ -7979,36 +8001,36 @@ memory usage: 11.8+ MB
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [20]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [60]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
 <span class="kn">from</span> <span class="nn">scipy</span> <span class="kn">import</span> <span class="n">stats</span>
 <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
 
-<span class="c1"># Đọc dữ liệu</span>
+<span class="c1"># Read data</span>
 <span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">'noshowappointments-kagglev2-may-2016.csv'</span><span class="p">)</span>
 
-<span class="c1"># Chuyển "No-show" thành nhị phân: 0 = đến đúng lịch, 1 = không đến</span>
+<span class="c1"># Convert "No-show" to binary: 0 = attended on time, 1 = did not attend</span>
 <span class="n">df</span><span class="p">[</span><span class="s1">'No-show'</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">'No-show'</span><span class="p">]</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="mi">1</span> <span class="k">if</span> <span class="n">x</span> <span class="o">==</span> <span class="s1">'Yes'</span> <span class="k">else</span> <span class="mi">0</span><span class="p">)</span>
 
-<span class="c1"># Tạo bảng kết quả kiểm định</span>
+<span class="c1"># Create a list to store test results</span>
 <span class="n">test_results</span> <span class="o">=</span> <span class="p">[]</span>
 
-<span class="c1"># Hàm kiểm định Chi-square cho các biến phân loại</span>
+<span class="c1"># Chi-square test function for categorical variables</span>
 <span class="k">def</span> <span class="nf">chi2_test</span><span class="p">(</span><span class="n">feature</span><span class="p">):</span>
     <span class="n">contingency_table</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">crosstab</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="n">feature</span><span class="p">],</span> <span class="n">df</span><span class="p">[</span><span class="s1">'No-show'</span><span class="p">])</span>
     <span class="n">chi2_stat</span><span class="p">,</span> <span class="n">p_value</span><span class="p">,</span> <span class="n">_</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">stats</span><span class="o">.</span><span class="n">chi2_contingency</span><span class="p">(</span><span class="n">contingency_table</span><span class="p">)</span>
     <span class="k">return</span> <span class="n">chi2_stat</span><span class="p">,</span> <span class="n">p_value</span>
 
-<span class="c1"># Hàm kiểm định T-test cho các biến liên tục</span>
+<span class="c1"># T-test function for continuous variables</span>
 <span class="k">def</span> <span class="nf">t_test</span><span class="p">(</span><span class="n">feature</span><span class="p">):</span>
     <span class="n">group_0</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="n">df</span><span class="p">[</span><span class="s1">'No-show'</span><span class="p">]</span> <span class="o">==</span> <span class="mi">0</span><span class="p">][</span><span class="n">feature</span><span class="p">]</span>
     <span class="n">group_1</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="n">df</span><span class="p">[</span><span class="s1">'No-show'</span><span class="p">]</span> <span class="o">==</span> <span class="mi">1</span><span class="p">][</span><span class="n">feature</span><span class="p">]</span>
     <span class="n">t_stat</span><span class="p">,</span> <span class="n">p_value</span> <span class="o">=</span> <span class="n">stats</span><span class="o">.</span><span class="n">ttest_ind</span><span class="p">(</span><span class="n">group_0</span><span class="p">,</span> <span class="n">group_1</span><span class="p">)</span>
     <span class="k">return</span> <span class="n">t_stat</span><span class="p">,</span> <span class="n">p_value</span>
 
-<span class="c1"># Các biến phân loại (dùng chi-square)</span>
+<span class="c1"># Categorical variables (use chi-square test)</span>
 <span class="n">categorical_features</span> <span class="o">=</span> <span class="p">[</span><span class="s1">'Gender'</span><span class="p">,</span> <span class="s1">'Scholarship'</span><span class="p">,</span> <span class="s1">'Hipertension'</span><span class="p">,</span> <span class="s1">'Diabetes'</span><span class="p">,</span> <span class="s1">'Alcoholism'</span><span class="p">,</span> <span class="s1">'Handcap'</span><span class="p">,</span> <span class="s1">'SMS_received'</span><span class="p">]</span>
 <span class="k">for</span> <span class="n">feature</span> <span class="ow">in</span> <span class="n">categorical_features</span><span class="p">:</span>
     <span class="n">chi2_stat</span><span class="p">,</span> <span class="n">p_value</span> <span class="o">=</span> <span class="n">chi2_test</span><span class="p">(</span><span class="n">feature</span><span class="p">)</span>
@@ -8020,7 +8042,7 @@ memory usage: 11.8+ MB
         <span class="s1">'T-test P-value'</span><span class="p">:</span> <span class="s1">'-'</span>
     <span class="p">})</span>
 
-<span class="c1"># Các biến liên tục (dùng T-test)</span>
+<span class="c1"># Continuous variables (use T-test)</span>
 <span class="n">calculate_days_difference</span><span class="p">()</span>
 <span class="c1"># print(DaysDifference)</span>
 <span class="n">continuous_features</span> <span class="o">=</span> <span class="p">[</span><span class="s1">'Age'</span><span class="p">,</span> <span class="s1">'DaysDifference'</span><span class="p">]</span>
@@ -8035,11 +8057,11 @@ memory usage: 11.8+ MB
         <span class="s1">'T-test P-value'</span><span class="p">:</span> <span class="n">p_value</span>
     <span class="p">})</span>
 
-<span class="c1"># Chuyển kết quả thành DataFrame</span>
+<span class="c1"># Convert results to DataFrame</span>
 <span class="k">global</span> <span class="n">result_df</span> 
 <span class="n">result_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">test_results</span><span class="p">)</span>
 
-<span class="c1"># Hiển thị kết quả</span>
+<span class="c1"># Display results</span>
 <span class="nb">print</span><span class="p">(</span><span class="s1">'*'</span> <span class="o">*</span> <span class="mi">100</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">result_df</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="s1">'*'</span> <span class="o">*</span> <span class="mi">100</span><span class="p">)</span>
@@ -8079,6 +8101,15 @@ memory usage: 11.8+ MB
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<p>Here’s a brief analysis of the statistical results:</p>
+<ul>
+<li>Gender: The Chi2 statistic (1.85) and P-value (0.17) suggest that there is no significant relationship between gender and the target variable.</li>
+<li>Scholarship, Hypertension, Diabetes, and SMS_received: These features show very high Chi2 statistics and P-values of 0.0, indicating strong and statistically significant associations with the target variable.</li>
+<li>Alcoholism: The Chi2 statistic is very low (0.00188) with a high P-value (0.97), suggesting no significant relationship with the target variable.</li>
+<li>Handcap: With a Chi2 statistic of 7.03 and a P-value of 0.13, there is no significant relationship between the handicap feature and the target variable.</li>
+<li>Age: The T-statistic (20.09) and P-value (0.0) indicate a significant relationship between age and the target variable.</li>
+<li>DaysDifference: The T-statistic (-63.02) and P-value (0.0) indicate a highly significant relationship with the target variable, suggesting that the number of days between scheduled and appointment days is an important factor.</li>
+</ul>
 </div>
 </div>
 </div>
@@ -8093,15 +8124,26 @@ memory usage: 11.8+ MB
 </div>
 </div>
 </div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<p>The goal of this step is to filter and rank features based on their statistical significance (P-value or T-test P-value) and impact on the target variable. The expected result is a list of the top 5 features with the greatest impact on the likelihood of missing an appointment, followed by visual plots to show their relationship with the target.</p>
+</div>
+</div>
+</div>
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [47]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [61]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="c1"># Continue to explore the data to address your additional research</span>
+<div class="highlight hl-ipython3"><pre><span></span><span class="c1"># Continue to explore the data to address your additional research </span>
 <span class="c1">#   questions. Add more headers as needed if you have more questions to</span>
 <span class="c1">#   investigate.</span>
 
@@ -8109,36 +8151,36 @@ memory usage: 11.8+ MB
 <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
 <span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
 
-<span class="c1"># Loại bỏ các đặc trưng không có giá trị thống kê (Chi2 hoặc T-statistic)</span>
+<span class="c1"># Remove features without statistical value (Chi2 or T-statistic)</span>
 <span class="n">result_df</span><span class="p">[</span><span class="s1">'Chi2 Stat'</span><span class="p">]</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">to_numeric</span><span class="p">(</span><span class="n">result_df</span><span class="p">[</span><span class="s1">'Chi2 Stat'</span><span class="p">],</span> <span class="n">errors</span><span class="o">=</span><span class="s1">'coerce'</span><span class="p">)</span>
 <span class="n">result_df</span><span class="p">[</span><span class="s1">'T-statistic'</span><span class="p">]</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">to_numeric</span><span class="p">(</span><span class="n">result_df</span><span class="p">[</span><span class="s1">'T-statistic'</span><span class="p">],</span> <span class="n">errors</span><span class="o">=</span><span class="s1">'coerce'</span><span class="p">)</span>
 
-<span class="c1"># Tạo cột "Impact Score" dựa trên giá trị tuyệt đối của Chi2 Stat hoặc T-statistic</span>
+<span class="c1"># Create an "Impact Score" column based on the absolute value of Chi2 Stat or T-statistic</span>
 <span class="n">result_df</span><span class="p">[</span><span class="s1">'Impact Score'</span><span class="p">]</span> <span class="o">=</span> <span class="n">result_df</span><span class="p">[</span><span class="s1">'Chi2 Stat'</span><span class="p">]</span><span class="o">.</span><span class="n">fillna</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span> <span class="o">+</span> <span class="n">result_df</span><span class="p">[</span><span class="s1">'T-statistic'</span><span class="p">]</span><span class="o">.</span><span class="n">abs</span><span class="p">()</span><span class="o">.</span><span class="n">fillna</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
 
-<span class="c1"># Lọc các đặc trưng có giá trị P-value hoặc T-test P-value hợp lệ (&lt; 0.05)</span>
+<span class="c1"># Filter features with valid P-value or T-test P-value (&lt; 0.05)</span>
 <span class="n">result_df</span><span class="p">[</span><span class="s1">'P-value'</span><span class="p">]</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">to_numeric</span><span class="p">(</span><span class="n">result_df</span><span class="p">[</span><span class="s1">'P-value'</span><span class="p">],</span> <span class="n">errors</span><span class="o">=</span><span class="s1">'coerce'</span><span class="p">)</span>
 <span class="n">result_df</span><span class="p">[</span><span class="s1">'T-test P-value'</span><span class="p">]</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">to_numeric</span><span class="p">(</span><span class="n">result_df</span><span class="p">[</span><span class="s1">'T-test P-value'</span><span class="p">],</span> <span class="n">errors</span><span class="o">=</span><span class="s1">'coerce'</span><span class="p">)</span>
 <span class="n">df_significant</span> <span class="o">=</span> <span class="n">result_df</span><span class="p">[(</span><span class="n">result_df</span><span class="p">[</span><span class="s1">'P-value'</span><span class="p">]</span> <span class="o">&lt;</span> <span class="mf">0.05</span><span class="p">)</span> <span class="o">|</span> <span class="p">(</span><span class="n">result_df</span><span class="p">[</span><span class="s1">'T-test P-value'</span><span class="p">]</span> <span class="o">&lt;</span> <span class="mf">0.05</span><span class="p">)]</span>
 
-<span class="c1"># Sắp xếp theo "Impact Score" giảm dần</span>
+<span class="c1"># Sort by "Impact Score" in descending order</span>
 <span class="n">df_top_features</span> <span class="o">=</span> <span class="n">df_significant</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">by</span><span class="o">=</span><span class="s1">'Impact Score'</span><span class="p">,</span> <span class="n">ascending</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
 
-<span class="c1"># In ra top 5 features</span>
+<span class="c1"># Print the top 5 features</span>
 <span class="nb">print</span><span class="p">(</span><span class="s2">"Top 5 features that have the greatest impact on the likelihood of missing an appointment:"</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">df_top_features</span><span class="p">[[</span><span class="s1">'Feature'</span><span class="p">,</span> <span class="s1">'Impact Score'</span><span class="p">]])</span>
 
 
 <span class="k">def</span> <span class="nf">plot_feature_relationship</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">feature</span><span class="p">,</span> <span class="n">target</span><span class="o">=</span><span class="s2">"No-show"</span><span class="p">,</span> <span class="n">plot_type</span><span class="o">=</span><span class="s2">"boxplot"</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">6</span><span class="p">)):</span>
 <span class="w">    </span><span class="sd">"""</span>
-<span class="sd">    Vẽ biểu đồ so sánh giữa một feature với No-show (0 hoặc 1).</span>
+<span class="sd">    Plot a comparison between a feature and No-show (0 or 1).</span>
 <span class="sd">    </span>
 <span class="sd">    Parameters:</span>
-<span class="sd">    - data (pd.DataFrame): Dữ liệu đầu vào chứa các cột feature và target.</span>
-<span class="sd">    - feature (str): Tên feature cần so sánh.</span>
-<span class="sd">    - target (str): Tên cột mục tiêu (mặc định là 'No-show').</span>
-<span class="sd">    - plot_type (str): Loại biểu đồ cần vẽ ('boxplot', 'barplot', 'countplot').</span>
-<span class="sd">    - figsize (tuple): Kích thước của biểu đồ.</span>
+<span class="sd">    - data (pd.DataFrame): Input data containing the feature and target columns.</span>
+<span class="sd">    - feature (str): Name of the feature to compare.</span>
+<span class="sd">    - target (str): Name of the target column (default is 'No-show').</span>
+<span class="sd">    - plot_type (str): Type of plot to draw ('boxplot', 'barplot', 'countplot').</span>
+<span class="sd">    - figsize (tuple): Size of the plot.</span>
 <span class="sd">    """</span>
     <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="n">figsize</span><span class="p">)</span>
 
@@ -8166,18 +8208,18 @@ memory usage: 11.8+ MB
     <span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
     <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 
-<span class="c1"># Tạo danh sách các features từ df_top_features</span>
+<span class="c1"># Create a list of features from df_top_features</span>
 <span class="n">top_features</span> <span class="o">=</span> <span class="n">df_top_features</span><span class="p">[</span><span class="s2">"Feature"</span><span class="p">]</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span>
 
-<span class="c1"># Lặp qua từng feature trong danh sách và vẽ biểu đồ phù hợp</span>
+<span class="c1"># Loop through each feature in the list and plot the appropriate chart</span>
 <span class="k">for</span> <span class="n">feature</span> <span class="ow">in</span> <span class="n">top_features</span><span class="p">:</span>
     <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Plotting for feature: </span><span class="si">{</span><span class="n">feature</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
     
-    <span class="c1"># Sử dụng countplot cho các cột dạng phân loại (categorical)</span>
-    <span class="k">if</span> <span class="n">df</span><span class="p">[</span><span class="n">feature</span><span class="p">]</span><span class="o">.</span><span class="n">nunique</span><span class="p">()</span> <span class="o">&lt;=</span> <span class="mi">10</span><span class="p">:</span>  <span class="c1"># Nếu cột có &lt;= 10 giá trị duy nhất</span>
+    <span class="c1"># Use countplot for categorical columns</span>
+    <span class="k">if</span> <span class="n">df</span><span class="p">[</span><span class="n">feature</span><span class="p">]</span><span class="o">.</span><span class="n">nunique</span><span class="p">()</span> <span class="o">&lt;=</span> <span class="mi">10</span><span class="p">:</span>  <span class="c1"># If the column has &lt;= 10 unique values</span>
         <span class="n">plot_feature_relationship</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">df</span><span class="p">,</span> <span class="n">feature</span><span class="o">=</span><span class="n">feature</span><span class="p">,</span> <span class="n">target</span><span class="o">=</span><span class="s2">"No-show"</span><span class="p">,</span> <span class="n">plot_type</span><span class="o">=</span><span class="s2">"countplot"</span><span class="p">)</span>
     
-    <span class="c1"># Sử dụng boxplot cho các cột dạng số liên tục</span>
+    <span class="c1"># Use boxplot for continuous numerical columns</span>
     <span class="k">else</span><span class="p">:</span>
         <span class="n">plot_feature_relationship</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">df</span><span class="p">,</span> <span class="n">feature</span><span class="o">=</span><span class="n">feature</span><span class="p">,</span> <span class="n">target</span><span class="o">=</span><span class="s2">"No-show"</span><span class="p">,</span> <span class="n">plot_type</span><span class="o">=</span><span class="s2">"boxplot"</span><span class="p">)</span>
 </pre></div>
@@ -8199,7 +8241,6 @@ memory usage: 11.8+ MB
 1     Scholarship     93.577197
 8  DaysDifference     63.015386
 3        Diabetes     25.322609
-['SMS_received', 'Hipertension', 'Scholarship', 'DaysDifference', 'Diabetes']
 Plotting for feature: SMS_received
 </pre>
 </div>
@@ -8246,7 +8287,7 @@ Plotting for feature: SMS_received
 <div class="jp-OutputArea-child">
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="application/vnd.jupyter.stderr" tabindex="0">
-<pre>C:\Users\Thao Ho\AppData\Local\Temp\ipykernel_19048\1939882694.py:43: FutureWarning: 
+<pre>C:\Users\Thao Ho\AppData\Local\Temp\ipykernel_19048\527655169.py:43: FutureWarning: 
 
 Passing `palette` without assigning `hue` is deprecated and will be removed in v0.14.0. Assign the `x` variable to `hue` and set `legend=False` for the same effect.
 
@@ -8282,24 +8323,77 @@ Passing `palette` without assigning `hue` is deprecated and will be removed in v
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h4 id="The-top-5-features-with-the-greatest-impact-on-the-likelihood-of-missing-an-appointment-are:">The top 5 features with the greatest impact on the likelihood of missing an appointment are:<a class="anchor-link" href="#The-top-5-features-with-the-greatest-impact-on-the-likelihood-of-missing-an-appointment-are:">¶</a></h4><ol>
+<li>SMS_received: This feature has the highest impact score, indicating that receiving an SMS reminder significantly influences appointment attendance.</li>
+<li>Hipertension: The presence of hypertension also has a strong impact, suggesting that patients with hypertension are more likely to miss their appointments.</li>
+<li>Scholarship: Receiving a scholarship has a notable effect, possibly reflecting financial barriers or incentives for attending appointments.</li>
+<li>DaysDifference: The number of days between scheduling and appointment shows a strong impact, implying that the timing of the appointment affects attendance.</li>
+<li>Diabetes: Diabetes also has an impact, indicating that patients with diabetes are more likely to miss their appointments.
+The analysis focuses on SMS_received as the feature with the highest impact on attendance.</li>
+</ol>
+<ul>
+<li><h5 id="Countplot-of-SMS_received-by-No-show">Countplot of SMS_received by No-show<a class="anchor-link" href="#Countplot-of-SMS_received-by-No-show">¶</a></h5><p>The countplot shows that most appointments did not receive SMS reminders, as indicated by the high count for "0" in the SMS_received column. Among those who received an SMS, the number of missed appointments (No-show = 1) is lower. This suggests that SMS reminders help reduce the likelihood of missed appointments.</p>
+</li>
+<li><h5 id="Countplot-of-Hipertension-SMS_received">Countplot of Hipertension SMS_received<a class="anchor-link" href="#Countplot-of-Hipertension-SMS_received">¶</a></h5><p>The number of patients without hypertension who attended their appointments (No-show = 0) is significantly higher than the number of patients who did not attend (No-show = 1).</p>
+</li>
+<li><h5 id="Countplot-of-Hipertension-SMS_received">Countplot of Hipertension SMS_received<a class="anchor-link" href="#Countplot-of-Hipertension-SMS_received">¶</a></h5><p>The chart shows the difference in the number of days between two groups: the non-missed group (0) and the missed group (1).<br/>
+The missed group (1) has a higher number of days compared to the non-missed group (0), with more outliers.<br/>
+This indicates that people with larger differences in the number of days tend to miss appointments more frequently.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
 <p><a id="conclusions"></a></p>
-<h2 id="Conclusions">Conclusions<a class="anchor-link" href="#Conclusions">¶</a></h2><h3 id="Conclusions:-Factors-Affecting-On-Time-Attendance-(No-show)">Conclusions: Factors Affecting On-Time Attendance (No-show)<a class="anchor-link" href="#Conclusions:-Factors-Affecting-On-Time-Attendance-(No-show)">¶</a></h3><h4 id="Strongly-Influencing-Factors:">Strongly Influencing Factors:<a class="anchor-link" href="#Strongly-Influencing-Factors:">¶</a></h4><p>_ Scholarship: Individuals without scholarships are more likely to attend on time.<br/>
-_ Hypertension: People with hypertension tend to attend appointments on time more frequently.<br/>
-_ Diabetes: Patients with diabetes are more likely to attend on time.<br/>
-_ SMS_received: Receiving SMS reminders increases the likelihood of on-time attendance.
-_ Age: Older individuals are more likely to attend their appointments on time.</p>
-<h4 id="Moderately-Influencing-Factor:">Moderately Influencing Factor:<a class="anchor-link" href="#Moderately-Influencing-Factor:">¶</a></h4><p>_Handicap: The presence of a handicap has a moderate influence on on-time attendance.</p>
-<h4 id="Weak-or-No-Impact:">Weak or No Impact:<a class="anchor-link" href="#Weak-or-No-Impact:">¶</a></h4><p>_ Gender: Gender does not significantly affect the likelihood of attending appointments on time.<br/>
-_ Alcoholism: Non-alcoholics tend to attend on time, but this factor has a weaker impact compared to others.<br/>
-_ DaysDifference: A significant negative impact on the likelihood of attending an appointment. The greater the gap between the scheduled day and the appointment day, the less likely patients are to attend on time.</p>
-<h3 id="Conclusion-on-No-show-(Missed-Appointments)">Conclusion on No-show (Missed Appointments)<a class="anchor-link" href="#Conclusion-on-No-show-(Missed-Appointments)">¶</a></h3><h4 id="The-top-5-features-that-influence-the-likelihood-of-missing-an-appointment-(No-show-=-1)-are:">The top 5 features that influence the likelihood of missing an appointment (No-show = 1) are:<a class="anchor-link" href="#The-top-5-features-that-influence-the-likelihood-of-missing-an-appointment-(No-show-=-1)-are:">¶</a></h4><p>_ SMS_received<br/>
-_ Hipertension<br/>
-_ Scholarship<br/>
-_ DaysDifference<br/>
-_ Diabetes</p>
+<h2 id="Conclusions">Conclusions<a class="anchor-link" href="#Conclusions">¶</a></h2><h3 id="Conclusions:-Factors-Affecting-On-Time-Attendance-(No-show)">Conclusions: Factors Affecting On-Time Attendance (No-show)<a class="anchor-link" href="#Conclusions:-Factors-Affecting-On-Time-Attendance-(No-show)">¶</a></h3><h4 id="Strongly-Influencing-Factors:">Strongly Influencing Factors:<a class="anchor-link" href="#Strongly-Influencing-Factors:">¶</a></h4><ul>
+<li>Scholarship: Individuals without scholarships are more likely to attend on time.</li>
+<li>Hypertension: People with hypertension tend to attend appointments on time more frequently.</li>
+<li>Diabetes: Patients with diabetes are more likely to attend on time.</li>
+<li>SMS_received: Receiving SMS reminders increases the likelihood of on-time attendance.</li>
+<li>Age: Older individuals are more likely to attend their appointments on time.</li>
+</ul>
+<h4 id="Moderately-Influencing-Factor:">Moderately Influencing Factor:<a class="anchor-link" href="#Moderately-Influencing-Factor:">¶</a></h4><ul>
+<li>Handicap: The presence of a handicap has a moderate influence on on-time attendance.</li>
+</ul>
+<h4 id="Weak-or-No-Impact:">Weak or No Impact:<a class="anchor-link" href="#Weak-or-No-Impact:">¶</a></h4><ul>
+<li>Gender: Gender does not significantly affect the likelihood of attending appointments on time.</li>
+<li>Alcoholism: Non-alcoholics tend to attend on time, but this factor has a weaker impact compared to others.</li>
+<li>DaysDifference: A significant negative impact on the likelihood of attending an appointment. The greater the gap between the scheduled day and the appointment day, the less likely patients are to attend on time.</li>
+</ul>
+<h3 id="Conclusion-on-No-show-(Missed-Appointments)">Conclusion on No-show (Missed Appointments)<a class="anchor-link" href="#Conclusion-on-No-show-(Missed-Appointments)">¶</a></h3><h4 id="The-top-5-features-that-influence-the-likelihood-of-missing-an-appointment-(No-show-=-1)-are:">The top 5 features that influence the likelihood of missing an appointment (No-show = 1) are:<a class="anchor-link" href="#The-top-5-features-that-influence-the-likelihood-of-missing-an-appointment-(No-show-=-1)-are:">¶</a></h4><ul>
+<li>SMS_received</li>
+<li>Hipertension</li>
+<li>Scholarship</li>
+<li>DaysDifference</li>
+<li>Diabetes</li>
+</ul>
 <h4 id="Suggested-Actions">Suggested Actions<a class="anchor-link" href="#Suggested-Actions">¶</a></h4><p>Increase Reminders: Focus on sending more reminders, especially SMS reminders, for patients who have a longer gap between the scheduled and appointment days.</p>
 <p>Targeted Programs: Implement targeted programs to improve appointment adherence for individuals with Scholarship, Hypertension, and Diabetes.</p>
 <p>By addressing these factors, healthcare providers can potentially improve attendance rates and reduce no-shows.</p>
+<h2 id="Limitations">Limitations<a class="anchor-link" href="#Limitations">¶</a></h2><p>However, our analysis faced several limitations:</p>
+<p>Data Quality and Completeness:</p>
+<ul>
+<li>We lacked detailed information on the specific reasons for patient no-shows, limiting the ability to propose tailored solutions.</li>
+</ul>
+<p>Lack of External Data:</p>
+<ul>
+<li>The dataset did not include factors such as economic status, precise geographical distance to healthcare facilities, or patient psychology, all of which could significantly influence no-show rates.</li>
+</ul>
+<p>Limited Analytical Models:</p>
+<ul>
+<li>The scope of the project primarily focused on exploratory data analysis (EDA), with results being descriptive rather than rigorously validated by predictive models or complex statistical methods.</li>
+</ul>
+<p>Generalizability of Results:</p>
+<ul>
+<li>The findings are specific to this dataset and may not be generalizable to other healthcare organizations or broader populations.</li>
+</ul>
 </div>
 </div>
 </div>
@@ -8308,7 +8402,7 @@ _ Diabetes</p>
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [57]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [63]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="c1"># Running this cell will execute a bash command to convert this notebook to an .html file</span>
@@ -8325,7 +8419,9 @@ _ Diabetes</p>
 <div class="jp-OutputArea-child">
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="application/vnd.jupyter.stderr" tabindex="0">
-<pre>c:\Users\Thao Ho\FSOFT\Udacity\Data-Analyst-Nov-2024\NoShowAppointments\.venv\Scripts\python.exe: No module named nbconvert
+<pre>[NbConvertApp] Converting notebook Investigate_a_Dataset.ipynb to html
+[NbConvertApp] WARNING | Alternative text is missing on 5 image(s).
+[NbConvertApp] Writing 507161 bytes to Investigate_a_Dataset.html
 </pre>
 </div>
 </div>
